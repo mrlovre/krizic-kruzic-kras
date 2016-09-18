@@ -1,0 +1,17 @@
+#field {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#field button {
+    width: 128px;
+    height: 128px;
+}
+
+#field td {
+    padding: 5px;
+}
+
+.title {
+    padding-bottom: 20px;
+}

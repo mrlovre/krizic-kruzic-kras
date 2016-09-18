@@ -6,13 +6,9 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/site.css', function(req, res) {
-  res.sendFile(__dirname + '/site.css');
-});
+app.use('/css', express.static(__dirname + '/css'));
 
-app.get('/scripts.js', function(req, res) {
-  res.sendFile(__dirname + '/scripts.js');
-});
+app.use('/js', express.static(__dirname + '/js'));
 
 http.listen(3000, function() {
   console.log('listening on *:3000');

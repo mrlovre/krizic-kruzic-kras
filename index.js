@@ -26,9 +26,49 @@ io.on('connection', function (socket) {
       console.log(msg.playar + ' plays ' + msg.field);
       currentPlayar = msg.playar;
     }
+    checkGameOver();
   });
+  socket.on('reset-game', resetGame);
 });
 
-var checkGameOver = function() {
-  
+var checkGameOver = function () {
+  var winner = null;
+  for (var i = 0; i < 3; i++) {
+    winner = hasWinner(row(i));
+    if (winner) break;
+    winner = hasWiner(column(i));
+    if (winner) break;
+  }
+  for (var i = 0; i < 2; i++) {
+    winner = hasWinner(diagonal(i));
+    if (winner) break;
+  }
+  if (winner || full()) {
+    io.emit('gameover', { winner: winner });
+  }
+}
+
+var hasWinner = function (fields) {
+  if (!fields[0] && fields[0] === fields[1] && fields[1] === fields[2]) {
+    return fields[0];
+  } else {
+    return null;
+  }
+}
+
+var row = function (i) {
+
+}
+
+var column = function (i) {
+
+}
+
+var diagonal = function (i) {
+
+}
+
+var resetGame = function () {
+  state = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+  currentPlayar = null;
 }

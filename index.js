@@ -56,16 +56,20 @@ var hasWinner = function (fields) {
   }
 }
 
+// Rov
 var row = function (i) {
-
+  return [state[3 * i], state[3 * i + 1], state[3 * i + 2]];
 }
 
+//Kolumna
 var column = function (i) {
-
+  return [state[i], state[i + 3], state[i + 6]];
 }
 
+//Diagonala /
 var diagonal = function (i) {
-
+  if (i === 0) return [state[2], state[4], state[6]];
+  return [state[0], state[3], state[6]];
 }
 
 var resetGame = function () {

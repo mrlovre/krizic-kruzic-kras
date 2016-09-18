@@ -3,25 +3,26 @@
 
 <head>
     <title>Križić&ndash;kružić&ndash;kraš</title>
-    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="/css/site.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
     <script src="/socket.io/socket.io.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="scripts.js"></script>
+    <script src="/js/scripts.js"></script>
 </head>
 
-<body>
+<body onload="init();">
     <h1 class="text-center title">Križić&ndash;kružić&ndash;kraš</h1>
     <div id="playar" class="form-inline text-center">
         <label>Playar:</label>
         <div class="input-group">
-            <input class=form-control>
+            <input class="form-control" id="playar-input" onkeyup="playarChange();">
             <div class="input-group-btn">
                 <button id="btn-gaw" class="btn btn-default" onclick="enterName();"><span class="glyphicon glyphicon-arrow-right"></span> Gaw!</button>
             </div>
         </div>
+        <script type="text/javascript">playarChange();</script>
     </div>
     <div id="game" class="fade">
         <table id="field">
